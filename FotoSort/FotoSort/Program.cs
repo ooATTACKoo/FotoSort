@@ -11,8 +11,9 @@ namespace FotoSorting
     {
         static void Main(string[] args)
         {
-            string readfolder= @"\\ACKERMANNNAS\photo\Mathi Handy Fotos2";
-            string targetfolderroot= @"c:\temp\testOut3\";
+          //  string readfolder= @"\\ACKERMANNNAS\photo\Oti iPhone Upload\";
+          string readfolder= @"\\ACKERMANNNAS\photo\Chris iPhone Upload\";
+            string targetfolderroot= @"\\ACKERMANNNAS\photo\Chronologische Fotos\";
             string[] files = GetFilesFromFolder(readfolder);
             int count =0;
             foreach (string image in files)
@@ -34,6 +35,7 @@ namespace FotoSorting
                 float prozent = 100*(float)count/files.Length;
                 Console.WriteLine(prozent);
             }
+            Console.WriteLine(count);
             Console.ReadLine();
 
           
@@ -73,7 +75,7 @@ namespace FotoSorting
                     return;
 
                     // Move the file.
-                    File.Copy(filename, targetFolder);
+                    File.Move(filename, targetFolder);
                     //Console.WriteLine("{0} was moved to {1}.", filename, targetFolder);
 
                     // See if the original exists now.
